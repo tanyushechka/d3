@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style type="text/css" media="screen">
+    circle {
+        fill: orange;
+        stroke: black;
+    }
+    </style>
+</head>
+
+<body>
+    <svg width="900" height="900">
+        <!-- <circle r="50" cx="100" cy="100"></circle>	 -->
+    </svg>
+</body>
+<script>
+var coords = [{
+    cx: 100,
+    cy: 100
+}, {
+    cx: 300,
+    cy: 300
+}, {
+    cx: 500,
+    cy: 500
+}, {
+    cx: 700,
+    cy: 100
+}];
+
+var svg = d3.select("svg");
+
+var circles = svg.selectAll("circle").data(coords);
+circles.enter().append("circle")
+    .attr('r', 50)
+    .attr('cx', function(d, i) { console.log(i); return d.cx;})
+    .attr('cy', function(d, i) { console.log(i); return d.cy;});
+</script>
+
+</html>
